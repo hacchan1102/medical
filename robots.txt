@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://medical-sigma-woad.vercel.app/sitemap.xml
+Sitemap: https://minnnanoyakuzaishi.com/sitemap.xml
