@@ -48,10 +48,10 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdro
 .nav-cta{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(120deg,var(--green),var(--green-d));color:#fff!important;padding:.6rem 1.2rem;border-radius:100px;box-shadow:0 8px 18px -8px rgba(73,172,81,.6)}
 .nav-toggle{display:none;background:none;border:none;font-size:1.55rem;color:var(--ink);cursor:pointer;line-height:1}
 
-/* HERO */
-.hero{position:relative;background:linear-gradient(135deg,#F4F9FF 0%,#EDF4FB 45%,#ECFDF5 100%);overflow:hidden}
+/* HERO (+ features share one continuous background) */
+.hero{position:relative;background:linear-gradient(160deg,#F4F9FF 0%,#EDF4FB 40%,#ECFDF5 100%);overflow:hidden;padding-bottom:4rem}
 .hero-deco{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.hero-wrap{position:relative;max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4.5rem}
+.hero-wrap{position:relative;max-width:1200px;margin:0 auto;padding:3.5rem 1.5rem 4rem}
 .hero-top{display:grid;grid-template-columns:1.05fr 1fr;gap:2.5rem;align-items:center}
 .hero-text h1{font-weight:900;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.25;letter-spacing:-.02em;color:var(--ink)}
 .hero-text .sub{margin:1.3rem 0 2rem;font-size:clamp(1rem,2vw,1.2rem);font-weight:500;color:var(--slate);line-height:1.8}
@@ -75,13 +75,13 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdro
 .chat-foot{padding:.8rem .9rem 1.1rem}
 .send{display:block;text-align:center;background:linear-gradient(145deg,var(--blue-l),var(--blue-d));color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;padding:.8rem;border-radius:100px}
 
-/* FEATURES */
-.features{position:relative;background:linear-gradient(180deg,#EAF3FB,#E7F6EE);padding:0 0 4rem}
-.feat-grid{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;transform:translateY(-3rem)}
+/* FEATURES (inside hero, same background) */
+.feat-grid{position:relative;z-index:1;max-width:1200px;margin:1.5rem auto 0;padding:0 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
 .feat{background:#fff;border:1px solid var(--bd);border-radius:20px;padding:1.8rem 1.4rem;text-align:center;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s}
 .feat:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
 .feat .ic{width:64px;height:64px;margin:0 auto 1rem;border-radius:16px;display:grid;place-items:center;background:var(--blue-pale)}
 .feat .ic svg{width:34px;height:34px}
+.feat:nth-child(4) .ic{background:#E6F7EC}
 .feat h3{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:.6rem}
 .feat p{font-size:.88rem;color:var(--slate);line-height:1.75}
 
@@ -114,8 +114,7 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:2.8rem 1.5rem 
   .hero-top{grid-template-columns:1fr;gap:1.8rem}
   .hero-text{text-align:center}
   .phone-col{order:-1}
-  .feat-grid{transform:none;grid-template-columns:repeat(2,1fr)}
-  .features{padding-top:3rem}
+  .feat-grid{grid-template-columns:repeat(2,1fr)}
   .sym-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
@@ -142,7 +141,7 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:2.8rem 1.5rem 
 </header>
 
 <section class="hero">
-  <svg class="hero-deco" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <svg class="hero-deco" viewBox="0 0 1440 1180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <g stroke="#B9CDEA" stroke-width="2" fill="none" opacity=".8">
       <circle cx="90" cy="255" r="7" fill="#8FB7E8" stroke="none"/>
       <circle cx="255" cy="230" r="7" fill="#F0B879" stroke="none"/>
@@ -154,11 +153,18 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:2.8rem 1.5rem 
       <line x1="1380" y1="270" x2="1310" y2="330"/><line x1="1310" y1="330" x2="1400" y2="390"/>
     </g>
     <g fill="none" stroke-linecap="round">
-      <path d="M100 700h60M130 670v60" stroke="#BFE0C9" stroke-width="22"/>
-      <path d="M255 810h56M283 782v56" stroke="#AFC9EE" stroke-width="20"/>
-      <path d="M55 940h50M80 915v50" stroke="#AFC9EE" stroke-width="18"/>
-      <path d="M1345 470h60M1375 440v60" stroke="#AFC9EE" stroke-width="22"/>
-      <path d="M1390 560h44M1412 538v44" stroke="#D9C7EE" stroke-width="16"/>
+      <path d="M60 900h96M108 852v96" stroke="#AFC9EE" stroke-width="30" opacity=".55"/>
+      <path d="M300 980h64M332 948v64" stroke="#BFE0C9" stroke-width="22" opacity=".6"/>
+      <path d="M40 1080h50M65 1055v50" stroke="#AFC9EE" stroke-width="18" opacity=".45"/>
+      <path d="M1345 470h60M1375 440v60" stroke="#AFC9EE" stroke-width="22" opacity=".5"/>
+      <path d="M1250 900h50M1275 875v50" stroke="#BFE0C9" stroke-width="20" opacity=".55"/>
+      <path d="M1390 990h44M1412 968v44" stroke="#D9C7EE" stroke-width="16" opacity=".5"/>
+    </g>
+    <g fill="#CFE3F5" opacity=".7">
+      <path d="M1330 1020l8 16 16 8-16 8-8 16-8-16-16-8 16-8z"/>
+    </g>
+    <g stroke="#BFD4F0" stroke-width="2" fill="none" opacity=".5">
+      <circle cx="70" cy="1150" r="4" fill="#BFD4F0" stroke="none"/><circle cx="100" cy="1170" r="4" fill="#BFD4F0" stroke="none"/><circle cx="130" cy="1150" r="4" fill="#BFD4F0" stroke="none"/>
     </g>
   </svg>
   <div class="hero-wrap">
@@ -171,7 +177,7 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:2.8rem 1.5rem 
       <div class="phone-col">
         <div class="phone">
           <div class="phone-frame"><div class="phone-screen">
-            <div class="chat-head"><div class="av"><img src="assets/logo-mark.png" alt="" width="28" height="28"></div><div class="nm">みんなの薬剤師</div></div>
+            <div class="chat-head"><div class="av"><picture><source srcset="assets/logo-mark.webp" type="image/webp"><img src="assets/logo-mark.png" alt="" width="28" height="28"></picture></div><div class="nm">みんなの薬剤師</div></div>
             <div class="chat-body">
               <div class="bub me">頭痛薬、どれが効く？</div>
               <div class="bub dr">こんにちは。痛みの種類や、お好みの成分はありますか？例えばイブプロフェン系など。</div>
@@ -182,14 +188,11 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:2.8rem 1.5rem 
       </div>
     </div>
   </div>
-</section>
-
-<section class="features">
   <div class="feat-grid">
     <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="9" height="6" rx="1.4"/><circle cx="6.6" cy="8" r="1.15" fill="var(--blue-d)" stroke="none"/><circle cx="15.5" cy="15.5" r="4.2"/><line x1="18.6" y1="18.6" x2="21.5" y2="21.5"/></svg></div><h3>市販薬選びをサポート</h3><p>気になる症状に、どの市販薬が最適か、プロの視点でアドバイスします。</p></div>
     <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h12a2 2 0 0 1 2 2V13a2 2 0 0 1-2 2H10l-4 3v-3H6a2 2 0 0 1-2-2V8.5a2 2 0 0 1 2-2z"/><path d="M9 15.5v1.6a1.6 1.6 0 0 0 1.6 1.6H14l3.4 2.6v-2.6h1a1.6 1.6 0 0 0 1.6-1.6v-3.4a1.6 1.6 0 0 0-1.6-1.6h-.6" opacity=".55"/></svg></div><h3>専門家に直接相談</h3><p>薬剤師や看護師に、リアルタイムで直接相談できます。</p></div>
     <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.2"/><line x1="10" y1="19" x2="14" y2="19"/><path d="M9.2 8h5.6a1 1 0 0 1 1 1v3.4a1 1 0 0 1-1 1H12l-1.8 1.4v-1.4H9.2a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/></svg></div><h3>スマホで完結</h3><p>場所を選ばず、スマホ一台で相談から回答まで完結します。</p></div>
-    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 5.4V11c0 5 3.2 8.2 7.5 10.1 4.3-1.9 7.5-5.1 7.5-10.1V5.4z"/><circle cx="12" cy="10.2" r="2" fill="var(--blue-d)" stroke="none"/><path d="M8.8 15.2c0-1.9 1.5-3 3.2-3s3.2 1.1 3.2 3" opacity=".55"/></svg></div><h3>匿名で安心</h3><p>本名を明かさず、安心してご相談いただけます。</p></div>
+    <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green-d)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 4.5 5.4V11c0 5 3.2 8.2 7.5 10.1 4.3-1.9 7.5-5.1 7.5-10.1V5.4z"/><circle cx="12" cy="10.2" r="2" fill="var(--green-d)" stroke="none"/><path d="M8.8 15.2c0-1.9 1.5-3 3.2-3s3.2 1.1 3.2 3" opacity=".55"/></svg></div><h3>匿名で安心</h3><p>本名を明かさず、安心してご相談いただけます。</p></div>
   </div>
 </section>
 
