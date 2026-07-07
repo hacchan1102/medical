@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://minnnanoyakuzaishi.com/sitemap.xml
+Sitemap: https://www.minnnanoyakuzaishi.com/sitemap.xml
