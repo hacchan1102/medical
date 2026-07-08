@@ -284,5 +284,15 @@ body.page{background:linear-gradient(180deg,#F6FAFF 0%,#F3F9F4 100%)}
   <p class="foot-note">👩‍⚕️ 現役の看護師・薬剤師が運営しています。お薬選びに迷ったら公式LINEでご相談ください。</p>
   <p class="foot-copy">© 2026 みんなの薬剤師. All rights reserved.</p>
 </footer>
+<style>
+.line-float-btn{position:fixed;right:1.1rem;bottom:1.1rem;z-index:200;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(145deg,#06C755,#05B14C);color:#fff!important;font-weight:700;font-size:.9rem;padding:.8rem 1.25rem;border-radius:100px;text-decoration:none;box-shadow:0 10px 28px -8px rgba(6,199,85,.55);animation:lineFloatPulse 2.6s ease-in-out infinite;transition:transform .2s}
+.line-float-btn:hover{transform:translateY(-3px)}
+.line-float-btn .lfb-ic{display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.28);font-size:.72rem;font-weight:800;flex-shrink:0}
+@keyframes lineFloatPulse{0%,100%{box-shadow:0 10px 28px -8px rgba(6,199,85,.55)}50%{box-shadow:0 10px 34px -6px rgba(6,199,85,.85)}}
+@media(max-width:480px){.line-float-btn{padding:.72rem 1rem;font-size:.82rem;right:.8rem;bottom:.8rem}}
+</style>
+<a href="https://lin.ee/yQA2ON5" target="_blank" rel="noopener" class="line-float-btn" aria-label="LINEで気軽に相談する">
+  <span class="lfb-ic">L</span><span>気軽に相談</span>
+</a>
 </body>
 </html>
