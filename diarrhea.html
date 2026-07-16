@@ -3,6 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H3V475P3YR');
+  // LINE友だち追加ボタンのクリックを計測
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        gtag('event', 'line_add_click', {
+          link_url: el.href,
+          link_text: (el.textContent || '').trim().slice(0, 50),
+          page_path: location.pathname
+        });
+      });
+    });
+  });
+</script>
+
 <title>下痢におすすめの市販薬・選び方｜みんなの薬剤師</title>
 <meta name="description" content="下痢におすすめの市販薬と対処法を薬剤師が解説。下痢止めを使ってよい場合・避けたい場合、水分補給のコツ、受診の目安を紹介します。">
 <meta name="robots" content="index, follow">
@@ -24,7 +45,7 @@
 <meta name="twitter:image" content="https://www.minnnanoyakuzaishi.com/ogp.jpg">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap"></noscript>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.minnnanoyakuzaishi.com/"}, {"@type": "ListItem", "position": 2, "name": "症状から探す", "item": "https://www.minnnanoyakuzaishi.com/#symptoms"}, {"@type": "ListItem", "position": 3, "name": "下痢", "item": "https://www.minnnanoyakuzaishi.com/diarrhea.html"}]}, {"@type": "MedicalWebPage", "name": "下痢におすすめの市販薬・選び方｜みんなの薬剤師", "description": "下痢におすすめの市販薬と対処法を薬剤師が解説。下痢止めを使ってよい場合・避けたい場合、水分補給のコツ、受診の目安を紹介します。", "url": "https://www.minnnanoyakuzaishi.com/diarrhea.html", "inLanguage": "ja", "lastReviewed": "2026-06-29", "reviewedBy": {"@type": "Person", "name": "みんなの薬剤師 監修薬剤師", "jobTitle": "薬剤師"}, "publisher": {"@type": "Organization", "name": "みんなの薬剤師", "url": "https://www.minnnanoyakuzaishi.com/", "logo": {"@type": "ImageObject", "url": "https://www.minnnanoyakuzaishi.com/assets/logo.png"}}, "image": "https://www.minnnanoyakuzaishi.com/ogp.jpg", "datePublished": "2026-06-27", "dateModified": "2026-06-29", "mainEntityOfPage": "https://www.minnnanoyakuzaishi.com/diarrhea.html", "audience": {"@type": "MedicalAudience", "audienceType": "Patient"}, "about": {"@type": "MedicalCondition", "name": "下痢"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "下痢止めはすぐ使ってよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "感染性が疑われるときは、原因を出し切る方がよい場合があります。発熱や血便があれば受診を優先しましょう。"}}, {"@type": "Question", "name": "何を飲めばいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "水だけより、経口補水液など電解質を含む飲み物が脱水対策に向いています。"}}, {"@type": "Question", "name": "食あたりに下痢止めはNG？", "acceptedAnswer": {"@type": "Answer", "text": "細菌やウイルスが原因のときは出し切る方がよい場合があり、安易な下痢止めは慎重に。発熱・血便があれば受診を。"}}, {"@type": "Question", "name": "子どもの下痢の対処は？", "acceptedAnswer": {"@type": "Answer", "text": "まず水分・電解質の補給を優先します。ぐったりする・水分が摂れない・血便があればすぐ受診しましょう。"}}, {"@type": "Question", "name": "下痢のとき食事はどうする？", "acceptedAnswer": {"@type": "Answer", "text": "おかゆ・うどんなど消化に良いものを少しずつ。脂っこいもの・冷たいもの・アルコールは控えめにしましょう。"}}, {"@type": "Question", "name": "何日続いたら受診すべき？", "acceptedAnswer": {"@type": "Answer", "text": "2〜3日たっても改善しない、血便・高熱・強い腹痛・脱水のサインがあれば受診しましょう。"}}]}]}
 </script>

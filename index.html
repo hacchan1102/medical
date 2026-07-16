@@ -3,6 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H3V475P3YR');
+  // LINE友だち追加ボタンのクリックを計測
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        gtag('event', 'line_add_click', {
+          link_url: el.href,
+          link_text: (el.textContent || '').trim().slice(0, 50),
+          page_path: location.pathname
+        });
+      });
+    });
+  });
+</script>
+
 <title>みんなの薬剤師｜看護師・薬剤師が教える市販薬の選び方・LINE無料相談</title>
 <meta name="description" content="現役の看護師・薬剤師が監修。あなたのスマホが一番身近な薬剤師に。LINEでサクッと市販薬相談、専門家が匿名・無料でお答えします。症状別にお薬も探せます。">
 <meta name="keywords" content="市販薬,薬剤師,看護師,LINE,相談,匿名,無料,OTC医薬品,頭痛,風邪,花粉症">

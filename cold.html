@@ -3,6 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H3V475P3YR');
+  // LINE友だち追加ボタンのクリックを計測
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        gtag('event', 'line_add_click', {
+          link_url: el.href,
+          link_text: (el.textContent || '').trim().slice(0, 50),
+          page_path: location.pathname
+        });
+      });
+    });
+  });
+</script>
+
 <title>風邪におすすめの市販薬・選び方｜みんなの薬剤師</title>
 <meta name="description" content="風邪におすすめの市販薬を薬剤師が解説。総合感冒薬と葛根湯の使い分け、引き始めの対処、受診の目安まで紹介します。">
 <meta name="robots" content="index, follow">
@@ -24,7 +45,7 @@
 <meta name="twitter:image" content="https://www.minnnanoyakuzaishi.com/ogp.jpg">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap"></noscript>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.minnnanoyakuzaishi.com/"}, {"@type": "ListItem", "position": 2, "name": "症状から探す", "item": "https://www.minnnanoyakuzaishi.com/#symptoms"}, {"@type": "ListItem", "position": 3, "name": "風邪", "item": "https://www.minnnanoyakuzaishi.com/cold.html"}]}, {"@type": "MedicalWebPage", "name": "風邪におすすめの市販薬・選び方｜みんなの薬剤師", "description": "風邪におすすめの市販薬を薬剤師が解説。総合感冒薬と葛根湯の使い分け、引き始めの対処、受診の目安まで紹介します。", "url": "https://www.minnnanoyakuzaishi.com/cold.html", "inLanguage": "ja", "lastReviewed": "2026-06-29", "reviewedBy": {"@type": "Person", "name": "みんなの薬剤師 監修薬剤師", "jobTitle": "薬剤師"}, "publisher": {"@type": "Organization", "name": "みんなの薬剤師", "url": "https://www.minnnanoyakuzaishi.com/", "logo": {"@type": "ImageObject", "url": "https://www.minnnanoyakuzaishi.com/assets/logo.png"}}, "image": "https://www.minnnanoyakuzaishi.com/ogp.jpg", "datePublished": "2026-06-27", "dateModified": "2026-06-29", "mainEntityOfPage": "https://www.minnnanoyakuzaishi.com/cold.html", "audience": {"@type": "MedicalAudience", "audienceType": "Patient"}, "about": {"@type": "MedicalCondition", "name": "風邪"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "風邪に抗生物質は必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "風邪の多くはウイルスが原因で、抗生物質は効きません。対症療法と休養が基本です。"}}, {"@type": "Question", "name": "葛根湯はいつ飲むのがよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "ゾクゾクする引き始めが目安です。汗をかくほど進んだ時期には向かないこともあります。"}}, {"@type": "Question", "name": "市販薬と病院、どちらがいい？", "acceptedAnswer": {"@type": "Answer", "text": "軽い症状なら市販の総合感冒薬で様子を見て大丈夫です。高熱が続く・呼吸が苦しい・持病がある場合は受診しましょう。"}}, {"@type": "Question", "name": "解熱剤はいつ使えばいい？", "acceptedAnswer": {"@type": "Answer", "text": "つらい高熱や痛みがあるときに使います。微熱で元気なら無理に下げず、水分と休養を優先しましょう。"}}, {"@type": "Question", "name": "総合感冒薬と単一症状薬の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "総合感冒薬は複数の症状をまとめてカバーし、単一症状薬は特定の症状にしぼって効かせます。症状が一つなら単一タイプも選択肢です。"}}, {"@type": "Question", "name": "市販の風邪薬を飲み合わせていい？", "acceptedAnswer": {"@type": "Answer", "text": "成分が重複すると過剰摂取のおそれがあります。総合感冒薬と解熱鎮痛薬の併用などは避け、迷ったら薬剤師に相談しましょう。"}}]}]}
 </script>

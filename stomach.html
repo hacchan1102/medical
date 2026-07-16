@@ -3,6 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H3V475P3YR');
+  // LINE友だち追加ボタンのクリックを計測
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        gtag('event', 'line_add_click', {
+          link_url: el.href,
+          link_text: (el.textContent || '').trim().slice(0, 50),
+          page_path: location.pathname
+        });
+      });
+    });
+  });
+</script>
+
 <title>胃痛・胃もたれにおすすめの市販薬・選び方｜みんなの薬剤師</title>
 <meta name="description" content="胃痛・胃もたれにおすすめの市販薬を薬剤師が解説。胃酸を抑えるH2ブロッカーと健胃薬の使い分け、受診の目安まで紹介します。">
 <meta name="robots" content="index, follow">
@@ -24,7 +45,7 @@
 <meta name="twitter:image" content="https://www.minnnanoyakuzaishi.com/ogp.jpg">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap"></noscript>
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.minnnanoyakuzaishi.com/"}, {"@type": "ListItem", "position": 2, "name": "症状から探す", "item": "https://www.minnnanoyakuzaishi.com/#symptoms"}, {"@type": "ListItem", "position": 3, "name": "胃痛・胃もたれ", "item": "https://www.minnnanoyakuzaishi.com/stomach.html"}]}, {"@type": "MedicalWebPage", "name": "胃痛・胃もたれにおすすめの市販薬・選び方｜みんなの薬剤師", "description": "胃痛・胃もたれにおすすめの市販薬を薬剤師が解説。胃酸を抑えるH2ブロッカーと健胃薬の使い分け、受診の目安まで紹介します。", "url": "https://www.minnnanoyakuzaishi.com/stomach.html", "inLanguage": "ja", "lastReviewed": "2026-06-29", "reviewedBy": {"@type": "Person", "name": "みんなの薬剤師 監修薬剤師", "jobTitle": "薬剤師"}, "publisher": {"@type": "Organization", "name": "みんなの薬剤師", "url": "https://www.minnnanoyakuzaishi.com/", "logo": {"@type": "ImageObject", "url": "https://www.minnnanoyakuzaishi.com/assets/logo.png"}}, "image": "https://www.minnnanoyakuzaishi.com/ogp.jpg", "datePublished": "2026-06-27", "dateModified": "2026-06-29", "mainEntityOfPage": "https://www.minnnanoyakuzaishi.com/stomach.html", "audience": {"@type": "MedicalAudience", "audienceType": "Patient"}, "about": {"@type": "MedicalCondition", "name": "胃痛・胃もたれ"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ガスター10はいつ飲めばいいですか？", "acceptedAnswer": {"@type": "Answer", "text": "胸やけや胃痛があるときに使います。連用は2週間までを目安にし、改善しなければ受診しましょう。"}}, {"@type": "Question", "name": "もたれと胸やけで薬は違いますか？", "acceptedAnswer": {"@type": "Answer", "text": "もたれには健胃薬、胸やけ・胃酸過多にはH2ブロッカーなど、症状のタイプで選びます。"}}, {"@type": "Question", "name": "ストレス性の胃痛にはどの薬？", "acceptedAnswer": {"@type": "Answer", "text": "胃酸が関係する痛みにはH2ブロッカーや胃粘膜保護薬が選択肢です。生活面の見直しも大切で、続く場合は受診を。"}}, {"@type": "Question", "name": "胃薬はどれくらい続けて飲んでいい？", "acceptedAnswer": {"@type": "Answer", "text": "H2ブロッカーなどは2週間を目安にしましょう。改善しない・繰り返す場合は受診を。"}}, {"@type": "Question", "name": "二日酔いの胃のむかつきにも使える？", "acceptedAnswer": {"@type": "Answer", "text": "胃の不快感には健胃・制酸薬が役立つことがあります。水分補給もあわせて行いましょう。"}}, {"@type": "Question", "name": "市販の胃薬で治らないときは？", "acceptedAnswer": {"@type": "Answer", "text": "2週間以上続く・体重が減る・黒い便が出るなどがあれば、胃カメラなど受診を検討しましょう。"}}]}]}
 </script>

@@ -3,6 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) - GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H3V475P3YR');
+  // LINE友だち追加ボタンのクリックを計測
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        gtag('event', 'line_add_click', {
+          link_url: el.href,
+          link_text: (el.textContent || '').trim().slice(0, 50),
+          page_path: location.pathname
+        });
+      });
+    });
+  });
+</script>
+
 <title>急な腹痛、市販薬で対処していい？原因と受診の目安｜みんなの薬剤師</title>
 <meta name="description" content="急な腹痛の主な原因と、市販薬で様子を見てよい場合・受診すべき場合の見分け方を薬剤師が解説します。">
 <meta name="robots" content="index, follow">
@@ -17,7 +38,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8A%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&display=swap"></noscript>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
