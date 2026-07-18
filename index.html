@@ -3,27 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) - GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H3V475P3YR');
-  // LINE友だち追加ボタンのクリックを計測
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        gtag('event', 'line_add_click', {
-          link_url: el.href,
-          link_text: (el.textContent || '').trim().slice(0, 50),
-          page_path: location.pathname
-        });
-      });
-    });
-  });
-</script>
-
 <title>みんなの薬剤師｜看護師・薬剤師が教える市販薬の選び方・LINE無料相談</title>
 <meta name="description" content="現役の看護師・薬剤師が監修。あなたのスマホが一番身近な薬剤師に。LINEでサクッと市販薬相談、専門家が匿名・無料でお答えします。症状別にお薬も探せます。">
 <meta name="keywords" content="市販薬,薬剤師,看護師,LINE,相談,匿名,無料,OTC医薬品,頭痛,風邪,花粉症">
@@ -401,6 +380,10 @@
       <a href="/medicines.html">市販薬を探す</a>
       <a href="/column.html">コラム</a>
       <a href="/company.html">会社情報</a>
+      <a class="line-btn" href="https://lin.ee/yQA2ON5" target="_blank" rel="noopener">
+        <svg class="chat-ico" viewBox="0 0 24 24"><path d="M12 3.2C6.9 3.2 2.8 6.5 2.8 10.6c0 3.6 3.2 6.7 7.6 7.3.3.05.7.18.8.44.07.24.05.6.02.85l-.12.75c-.04.22-.18.9.79.49.97-.41 5.24-3.09 7.15-5.29 1.32-1.45 1.95-2.92 1.95-4.99 0-4.1-4.1-7.4-8.97-7.4z"/></svg>
+        LINE相談
+      </a>
     </div>
   </nav>
 </header>
@@ -700,15 +683,5 @@
   <div class="foot-bottom">© 2026 みんなの薬剤師. All rights reserved.</div>
 </footer>
 
-<style>
-.line-float-btn{position:fixed;right:1.1rem;bottom:1.1rem;z-index:200;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(145deg,#06C755,#05B14C);color:#fff!important;font-weight:700;font-size:.9rem;padding:.8rem 1.25rem;border-radius:100px;text-decoration:none;box-shadow:0 10px 28px -8px rgba(6,199,85,.55);animation:lineFloatPulse 2.6s ease-in-out infinite;transition:transform .2s}
-.line-float-btn:hover{transform:translateY(-3px)}
-.line-float-btn .lfb-ic{display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.28);font-size:.72rem;font-weight:800;flex-shrink:0}
-@keyframes lineFloatPulse{0%,100%{box-shadow:0 10px 28px -8px rgba(6,199,85,.55)}50%{box-shadow:0 10px 34px -6px rgba(6,199,85,.85)}}
-@media(max-width:480px){.line-float-btn{padding:.72rem 1rem;font-size:.82rem;right:.8rem;bottom:.8rem}}
-</style>
-<a href="https://lin.ee/yQA2ON5" target="_blank" rel="noopener" class="line-float-btn" aria-label="LINEで気軽に相談する">
-  <span class="lfb-ic">L</span><span>気軽に相談</span>
-</a>
 </body>
 </html>

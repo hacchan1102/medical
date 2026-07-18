@@ -7,7 +7,9 @@
       "has": [{ "type": "host", "value": "minnnanoyakuzaishi.com" }],
       "destination": "https://www.minnnanoyakuzaishi.com/:path*",
       "permanent": true
-    }
+    },
+    { "source": "/medicine/:path*", "destination": "/medicines.html", "permanent": true },
+    { "source": "/search/:path*", "destination": "/medicines.html", "permanent": true }
   ],
   "headers": [
     {

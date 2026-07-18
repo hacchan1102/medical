@@ -3,27 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) - GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H3V475P3YR');
-  // LINE友だち追加ボタンのクリックを計測
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        gtag('event', 'line_add_click', {
-          link_url: el.href,
-          link_text: (el.textContent || '').trim().slice(0, 50),
-          page_path: location.pathname
-        });
-      });
-    });
-  });
-</script>
-
 <title>風邪におすすめの市販薬・選び方｜みんなの薬剤師</title>
 <meta name="description" content="風邪におすすめの市販薬を薬剤師が解説。総合感冒薬と葛根湯の使い分け、引き始めの対処、受診の目安まで紹介します。">
 <meta name="robots" content="index, follow">
@@ -45,7 +24,7 @@
 <meta name="twitter:image" content="https://www.minnnanoyakuzaishi.com/ogp.jpg">
 <link rel="icon" type="image/png" href="assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.minnnanoyakuzaishi.com/"}, {"@type": "ListItem", "position": 2, "name": "症状から探す", "item": "https://www.minnnanoyakuzaishi.com/#symptoms"}, {"@type": "ListItem", "position": 3, "name": "風邪", "item": "https://www.minnnanoyakuzaishi.com/cold.html"}]}, {"@type": "MedicalWebPage", "name": "風邪におすすめの市販薬・選び方｜みんなの薬剤師", "description": "風邪におすすめの市販薬を薬剤師が解説。総合感冒薬と葛根湯の使い分け、引き始めの対処、受診の目安まで紹介します。", "url": "https://www.minnnanoyakuzaishi.com/cold.html", "inLanguage": "ja", "lastReviewed": "2026-06-29", "reviewedBy": {"@type": "Person", "name": "みんなの薬剤師 監修薬剤師", "jobTitle": "薬剤師"}, "publisher": {"@type": "Organization", "name": "みんなの薬剤師", "url": "https://www.minnnanoyakuzaishi.com/", "logo": {"@type": "ImageObject", "url": "https://www.minnnanoyakuzaishi.com/assets/logo.png"}}, "image": "https://www.minnnanoyakuzaishi.com/ogp.jpg", "datePublished": "2026-06-27", "dateModified": "2026-06-29", "mainEntityOfPage": "https://www.minnnanoyakuzaishi.com/cold.html", "audience": {"@type": "MedicalAudience", "audienceType": "Patient"}, "about": {"@type": "MedicalCondition", "name": "風邪"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "風邪に抗生物質は必要ですか？", "acceptedAnswer": {"@type": "Answer", "text": "風邪の多くはウイルスが原因で、抗生物質は効きません。対症療法と休養が基本です。"}}, {"@type": "Question", "name": "葛根湯はいつ飲むのがよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "ゾクゾクする引き始めが目安です。汗をかくほど進んだ時期には向かないこともあります。"}}, {"@type": "Question", "name": "市販薬と病院、どちらがいい？", "acceptedAnswer": {"@type": "Answer", "text": "軽い症状なら市販の総合感冒薬で様子を見て大丈夫です。高熱が続く・呼吸が苦しい・持病がある場合は受診しましょう。"}}, {"@type": "Question", "name": "解熱剤はいつ使えばいい？", "acceptedAnswer": {"@type": "Answer", "text": "つらい高熱や痛みがあるときに使います。微熱で元気なら無理に下げず、水分と休養を優先しましょう。"}}, {"@type": "Question", "name": "総合感冒薬と単一症状薬の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "総合感冒薬は複数の症状をまとめてカバーし、単一症状薬は特定の症状にしぼって効かせます。症状が一つなら単一タイプも選択肢です。"}}, {"@type": "Question", "name": "市販の風邪薬を飲み合わせていい？", "acceptedAnswer": {"@type": "Answer", "text": "成分が重複すると過剰摂取のおそれがあります。総合感冒薬と解熱鎮痛薬の併用などは避け、迷ったら薬剤師に相談しましょう。"}}]}]}
 </script>
@@ -161,6 +140,7 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:2.8rem 1.5rem 
       <a href="medicines.html">市販薬を探す</a>
       <a href="column.html">コラム</a>
       <a href="company.html">会社情報</a>
+      <a href="https://lin.ee/yQA2ON5" target="_blank" class="nav-cta"><span>💬</span>LINE相談</a>
     </nav>
   </div>
 </header>
@@ -237,15 +217,5 @@ footer{background:var(--ink);color:#fff;text-align:center;padding:2.8rem 1.5rem 
   <p class="foot-note">👩‍⚕️ 現役の看護師・薬剤師が運営しています。お薬選びに迷ったら公式LINEでご相談ください。</p>
   <p class="foot-copy">© 2026 みんなの薬剤師. All rights reserved.</p>
 </footer>
-<style>
-.line-float-btn{position:fixed;right:1.1rem;bottom:1.1rem;z-index:200;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(145deg,#06C755,#05B14C);color:#fff!important;font-weight:700;font-size:.9rem;padding:.8rem 1.25rem;border-radius:100px;text-decoration:none;box-shadow:0 10px 28px -8px rgba(6,199,85,.55);animation:lineFloatPulse 2.6s ease-in-out infinite;transition:transform .2s}
-.line-float-btn:hover{transform:translateY(-3px)}
-.line-float-btn .lfb-ic{display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.28);font-size:.72rem;font-weight:800;flex-shrink:0}
-@keyframes lineFloatPulse{0%,100%{box-shadow:0 10px 28px -8px rgba(6,199,85,.55)}50%{box-shadow:0 10px 34px -6px rgba(6,199,85,.85)}}
-@media(max-width:480px){.line-float-btn{padding:.72rem 1rem;font-size:.82rem;right:.8rem;bottom:.8rem}}
-</style>
-<a href="https://lin.ee/yQA2ON5" target="_blank" rel="noopener" class="line-float-btn" aria-label="LINEで気軽に相談する">
-  <span class="lfb-ic">L</span><span>気軽に相談</span>
-</a>
 </body>
 </html>

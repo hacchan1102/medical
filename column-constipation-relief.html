@@ -3,27 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) - GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3V475P3YR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-H3V475P3YR');
-  // LINE友だち追加ボタンのクリックを計測
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('a[href*="lin.ee"], a[href*="line.me"]').forEach(function (el) {
-      el.addEventListener('click', function () {
-        gtag('event', 'line_add_click', {
-          link_url: el.href,
-          link_text: (el.textContent || '').trim().slice(0, 50),
-          page_path: location.pathname
-        });
-      });
-    });
-  });
-</script>
-
 <title>便秘を解消するには？食事・運動・市販薬のポイント｜みんなの薬剤師</title>
 <meta name="description" content="便秘を解消するための生活習慣の見直し方と、市販薬のタイプ別の選び方を薬剤師がやさしく解説します。">
 <meta name="robots" content="index, follow">
@@ -38,7 +17,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8A%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&display=swap"></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -280,6 +259,7 @@ body.page{background:linear-gradient(180deg,#F6FAFF 0%,#F3F9F4 100%)}
       <a href="medicines.html">市販薬を探す</a>
       <a href="column.html">コラム</a>
       <a href="company.html">会社情報</a>
+      <a href="https://lin.ee/yQA2ON5" target="_blank" class="nav-cta"><span>💬</span>LINE相談</a>
     </nav>
   </div>
 </header>
@@ -329,15 +309,5 @@ body.page{background:linear-gradient(180deg,#F6FAFF 0%,#F3F9F4 100%)}
   <p class="foot-note">👩‍⚕️ 現役の看護師・薬剤師が運営しています。お薬選びに迷ったら公式LINEでご相談ください。</p>
   <p class="foot-copy">© 2026 みんなの薬剤師. All rights reserved.</p>
 </footer>
-<style>
-.line-float-btn{position:fixed;right:1.1rem;bottom:1.1rem;z-index:200;display:inline-flex;align-items:center;gap:.5rem;background:linear-gradient(145deg,#06C755,#05B14C);color:#fff!important;font-weight:700;font-size:.9rem;padding:.8rem 1.25rem;border-radius:100px;text-decoration:none;box-shadow:0 10px 28px -8px rgba(6,199,85,.55);animation:lineFloatPulse 2.6s ease-in-out infinite;transition:transform .2s}
-.line-float-btn:hover{transform:translateY(-3px)}
-.line-float-btn .lfb-ic{display:grid;place-items:center;width:20px;height:20px;border-radius:6px;background:rgba(255,255,255,.28);font-size:.72rem;font-weight:800;flex-shrink:0}
-@keyframes lineFloatPulse{0%,100%{box-shadow:0 10px 28px -8px rgba(6,199,85,.55)}50%{box-shadow:0 10px 34px -6px rgba(6,199,85,.85)}}
-@media(max-width:480px){.line-float-btn{padding:.72rem 1rem;font-size:.82rem;right:.8rem;bottom:.8rem}}
-</style>
-<a href="https://lin.ee/yQA2ON5" target="_blank" rel="noopener" class="line-float-btn" aria-label="LINEで気軽に相談する">
-  <span class="lfb-ic">L</span><span>気軽に相談</span>
-</a>
 </body>
 </html>
