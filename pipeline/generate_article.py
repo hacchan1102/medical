@@ -82,7 +82,50 @@ JSONのみを出力(前置き・コードブロック記号なし)。構造:
 """
 
 
-def api_call(prompt: str) -> str:
+GEMINI_MODELS = [
+    os.environ.get("GEMINI_MODEL", ""),
+    "gemini-flash-latest", "gemini-3.5-flash", "gemini-2.5-flash",
+]
+
+
+def call_gemini(prompt: str) -> str:
+    """Gemini API (Google AI Studio, 無料枠あり・クレカ不要)"""
+    key = os.environ["GEMINI_API_KEY"].strip()
+    last_err = None
+    for model in [m for m in GEMINI_MODELS if m]:
+        try:
+            req = urllib.request.Request(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                data=json.dumps({
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "maxOutputTokens": 8192,
+                        "responseMimeType": "application/json",
+                    },
+                }).encode(),
+                headers={"Content-Type": "application/json", "x-goog-api-key": key},
+            )
+            with urllib.request.urlopen(req, timeout=300) as r:
+                data = json.loads(r.read().decode())
+            parts = data["candidates"][0]["content"]["parts"]
+            print(f"Gemini model used: {model}")
+            return "".join(p.get("text", "") for p in parts)
+        except urllib.error.HTTPError as e:
+            body = ""
+            try:
+                body = e.read().decode()[:500]
+            except Exception:
+                pass
+            last_err = f"{model}: HTTP {e.code} {body}"
+            print(f"[Gemini] {last_err}")
+            if e.code == 404:  # モデル名が変わった場合は次の候補を試す
+                continue
+            raise RuntimeError(f"Gemini API エラー: HTTP {e.code}\n{body}")
+    raise RuntimeError(f"No Gemini model worked: {last_err}")
+
+
+def call_claude(prompt: str) -> str:
+    """Anthropic API (従量課金。ANTHROPIC_API_KEY がある場合のみ)"""
     req = urllib.request.Request(
         "https://api.anthropic.com/v1/messages",
         data=json.dumps({
@@ -92,13 +135,21 @@ def api_call(prompt: str) -> str:
         }).encode(),
         headers={
             "Content-Type": "application/json",
-            "x-api-key": os.environ["ANTHROPIC_API_KEY"],
+            "x-api-key": os.environ["ANTHROPIC_API_KEY"].strip(),
             "anthropic-version": "2023-06-01",
         },
     )
     with urllib.request.urlopen(req, timeout=300) as r:
         data = json.loads(r.read().decode())
     return "".join(b.get("text", "") for b in data["content"] if b.get("type") == "text")
+
+
+def api_call(prompt: str) -> str:
+    if os.environ.get("GEMINI_API_KEY"):
+        return call_gemini(prompt)
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        return call_claude(prompt)
+    raise RuntimeError("GEMINI_API_KEY か ANTHROPIC_API_KEY のどちらかを設定してください")
 
 
 def parse_json(text: str) -> dict:
@@ -311,7 +362,12 @@ def main():
             for attempt in range(2):
                 p2 = prompt if attempt == 0 else prompt + "\n\n前回の出力には次の問題がありました。修正して再出力:\n" + "\n".join(last_errs)
                 try:
-                    cand = parse_json(api_call(p2))
+                    raw = api_call(p2)
+                except Exception as e:
+                    print("APIの呼び出しに失敗しました（キー設定を確認してください）:", e)
+                    sys.exit(1)
+                try:
+                    cand = parse_json(raw)
                 except Exception as e:
                     last_errs = [f"JSON parse error: {e}"]
                     continue
