@@ -1,0 +1,78 @@
+name: 新規コラム記事の自動生成
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'   # 毎週月曜 09:00 JST
+  workflow_dispatch: {}    # 手動実行も可能
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 記事を生成
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 pipeline/generate_article.py
+
+      - name: 生成ファイル名を取得
+        id: meta
+        run: |
+          FNAME=$(cat pipeline/last_generated.txt)
+          echo "fname=$FNAME" >> "$GITHUB_OUTPUT"
+          if [ -z "$FNAME" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Pull Request を作成（マージ＝公開承認）
+        if: steps.meta.outputs.skip != 'true'
+        id: pr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: article/${{ steps.meta.outputs.fname }}
+          commit-message: "新規コラム: ${{ steps.meta.outputs.fname }}"
+          title: "【要レビュー】新規コラム: ${{ steps.meta.outputs.fname }}"
+          body: |
+            自動生成された新規コラムです。
+            - 成分名・数値・受診目安を薬剤師として確認してください
+            - 問題なければ **Merge → Vercelが自動デプロイ（公開）** されます
+            - 修正が必要なら、このブランチのファイルをGitHub上で直接編集してからMergeしてください
+            - 公開後は Search Console で URL 検査 → インデックス登録をリクエストしてください
+          labels: article-review
+
+      - name: レビュー用メールを送信
+        if: steps.meta.outputs.skip != 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "【レビュー依頼】新規コラム: ${{ steps.meta.outputs.fname }}"
+          to: ${{ secrets.GMAIL_USERNAME }}
+          from: みんなの薬剤師 記事パイプライン
+          body: |
+            新しいコラム記事が生成されました。添付のHTMLを確認してください。
+
+            ▼ 承認（公開）する場合
+            下のPRを開いて Merge してください。Vercelが自動デプロイします。
+            ${{ steps.pr.outputs.pull-request-url }}
+
+            ▼ 修正したい場合
+            PRのブランチ上でファイルを編集してから Merge してください。
+
+            ▼ 公開しない場合
+            PRを Close してください（サイトには反映されません）。
+
+            ※ 成分名・数値・受診の目安は必ず薬剤師として確認をお願いします。
+          attachments: ${{ steps.meta.outputs.fname }}
