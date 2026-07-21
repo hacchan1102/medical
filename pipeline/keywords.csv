@@ -1,5 +1,13 @@
 slug,keyword,working_title,status,notes
-throat-pain,のどの痛み 市販薬,のどが痛いときの市販薬の選び方,pending,throat.htmlと相互リンク
+throat-pain,のどの痛み 市販薬,のどが痛いときの市販薬の選び方,done,throat.htmlと相互リンク | generated 2026-07-21
+heatstroke-ors,熱中症 経口補水液,熱中症対策と経口補水液の正しい使い方,pending,夏の時事ネタ・受診目安を保守的に
+aircon-dry-skin,エアコン 肌 乾燥 かゆい,エアコンで肌が乾燥してかゆいときの市販薬とケア,pending,夏の時事ネタ・保湿+かゆみ止め
+aircon-cold,冷房 喉 痛い だるい,エアコンで喉が痛い・だるいときの対処法,pending,夏の時事ネタ・cold-early/throat-painと相互リンク
+summer-kampo,夏バテ 漢方,夏の不調に使われる漢方薬（夏バテ・むくみ）,pending,薬剤師知識ネタ・E-E-A-T向き・断定を避け保守的に
+insect-bite,虫刺され かゆみ止め,虫刺されのかゆみ・腫れに使う市販薬,pending,夏の時事ネタ
+natsubate,夏バテ だるさ 市販薬,夏バテのだるさをやわらげる市販薬とセルフケア,pending,fatigue.htmlと相互リンク
+sunburn-care,日焼け後 ケア 市販薬,日焼けした肌のケアと市販薬の選び方,pending,夏の時事ネタ
+asemo,あせも 市販薬,あせもができたときの市販薬と対処法,pending,夏の時事ネタ
 cough-care,せき 止まらない 市販薬,せきが止まらないときの対処と市販薬,pending,cold.htmlと相互リンク
 canker-sore,口内炎 市販薬,口内炎ができたときの市販薬と治し方,pending,
 motion-sickness,乗り物酔い 薬,乗り物酔いを防ぐ市販薬と使うタイミング,pending,
@@ -7,3 +15,16 @@ eye-itch,目のかゆみ 目薬,目がかゆいときの市販の目薬の選び
 muscle-pain,肩こり 湿布 市販,肩こり・筋肉痛の湿布と塗り薬の選び方,pending,
 insomnia-otc,眠れない 市販薬,眠れないときに市販薬を使ってもいい？,pending,睡眠改善薬は保守的に・連用注意を明記
 fatigue-vitamin,疲れ ビタミン剤,疲れが取れないときのビタミン剤の選び方,pending,fatigue.htmlと相互リンク
+nasal-spray,点鼻薬 使いすぎ,点鼻薬の使いすぎに注意「薬剤性鼻炎」とは,pending,薬剤師知識ネタ・E-E-A-T向き
+med-with-tea,薬 お茶で飲む,薬をお茶やコーヒーで飲んでもいい？,pending,薬剤師知識ネタ・E-E-A-T向き
+med-forgot,薬 飲み忘れ 対処,薬を飲み忘れたときの正しい対処法,pending,薬剤師知識ネタ・E-E-A-T向き
+med-expiry,市販薬 使用期限 保管,市販薬の使用期限と正しい保管方法,pending,薬剤師知識ネタ・E-E-A-T向き
+hemorrhoid,痔 市販薬,痔の市販薬（軟膏・坐剤）の選び方,pending,検索需要大・受診目安を明確に
+dry-eye,ドライアイ 目薬,ドライアイ・疲れ目の目薬の選び方,pending,
+lower-back,腰痛 湿布 市販薬,腰痛に使う湿布・塗り薬の選び方,pending,しびれ等の受診サインを明確に
+toothache,歯痛 応急処置 市販薬,歯が痛いときの応急処置と市販薬,pending,受診が前提であることを強調
+athlete-foot,水虫 市販薬,水虫の市販薬と再発を防ぐケア,pending,
+hand-eczema,手荒れ 市販薬,手荒れ・主婦湿疹のケアと市販薬,pending,
+bloating,お腹の張り ガス 市販薬,お腹の張り・ガスだまりに使う市販薬,pending,stomach.htmlと相互リンク
+stress-stomach,ストレス 胃痛 市販薬,ストレスによる胃の不調と市販薬,pending,heartburnコラムと相互リンク
+pms,PMS 市販薬,PMS（月経前の不調）に使える市販薬,pending,period-painコラムと相互リンク・保守的に
