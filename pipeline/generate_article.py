@@ -11,7 +11,7 @@
 実行: python3 pipeline/generate_article.py
 必要: 環境変数 ANTHROPIC_API_KEY  (テスト時は MOCK_JSON=path で API を使わず実行可)
 """
-import csv, json, os, re, sys, datetime, urllib.request
+import csv, json, os, re, sys, time, datetime, urllib.request, urllib.error
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV_PATH = os.path.join(ROOT, "pipeline", "keywords.csv")
@@ -84,44 +84,57 @@ JSONのみを出力(前置き・コードブロック記号なし)。構造:
 
 GEMINI_MODELS = [
     os.environ.get("GEMINI_MODEL", ""),
-    "gemini-flash-latest", "gemini-3.5-flash", "gemini-2.5-flash",
+    "gemini-flash-latest", "gemini-2.5-flash",
+    "gemini-flash-lite-latest", "gemini-2.5-flash-lite",
 ]
 
 
 def call_gemini(prompt: str) -> str:
-    """Gemini API (Google AI Studio, 無料枠あり・クレカ不要)"""
+    """Gemini API (Google AI Studio, 無料枠あり・クレカ不要)
+    404: モデル名変更 → 次の候補へ / 429・503: 混雑 → 待って再試行 → ダメなら次の候補へ
+    """
     key = os.environ["GEMINI_API_KEY"].strip()
+    models = [m for m in GEMINI_MODELS if m]
     last_err = None
-    for model in [m for m in GEMINI_MODELS if m]:
-        try:
-            req = urllib.request.Request(
-                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                data=json.dumps({
-                    "contents": [{"parts": [{"text": prompt}]}],
-                    "generationConfig": {
-                        "maxOutputTokens": 8192,
-                        "responseMimeType": "application/json",
-                    },
-                }).encode(),
-                headers={"Content-Type": "application/json", "x-goog-api-key": key},
-            )
-            with urllib.request.urlopen(req, timeout=300) as r:
-                data = json.loads(r.read().decode())
-            parts = data["candidates"][0]["content"]["parts"]
-            print(f"Gemini model used: {model}")
-            return "".join(p.get("text", "") for p in parts)
-        except urllib.error.HTTPError as e:
-            body = ""
+    for model in models:
+        for attempt in range(3):
             try:
-                body = e.read().decode()[:500]
-            except Exception:
-                pass
-            last_err = f"{model}: HTTP {e.code} {body}"
-            print(f"[Gemini] {last_err}")
-            if e.code == 404:  # モデル名が変わった場合は次の候補を試す
-                continue
-            raise RuntimeError(f"Gemini API エラー: HTTP {e.code}\n{body}")
-    raise RuntimeError(f"No Gemini model worked: {last_err}")
+                req = urllib.request.Request(
+                    f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                    data=json.dumps({
+                        "contents": [{"parts": [{"text": prompt}]}],
+                        "generationConfig": {
+                            "maxOutputTokens": 8192,
+                            "responseMimeType": "application/json",
+                        },
+                    }).encode(),
+                    headers={"Content-Type": "application/json", "x-goog-api-key": key},
+                )
+                with urllib.request.urlopen(req, timeout=300) as r:
+                    data = json.loads(r.read().decode())
+                parts = data["candidates"][0]["content"]["parts"]
+                print(f"Gemini model used: {model}")
+                return "".join(p.get("text", "") for p in parts)
+            except urllib.error.HTTPError as e:
+                body = ""
+                try:
+                    body = e.read().decode()[:400]
+                except Exception:
+                    pass
+                last_err = f"{model}: HTTP {e.code} {body}"
+                print(f"[Gemini] {last_err}")
+                if e.code == 404:
+                    break  # モデル名が無効 → 次の候補モデルへ
+                if e.code in (429, 503):
+                    if attempt < 2:
+                        wait = 20 * (attempt + 1)
+                        print(f"[Gemini] 混雑中: {wait}秒待って再試行 ({attempt + 1}/2)")
+                        time.sleep(wait)
+                        continue
+                    print(f"[Gemini] {model} は混雑が続くため次の候補モデルへ切り替えます")
+                    break
+                raise RuntimeError(f"Gemini API エラー: HTTP {e.code}\n{body}")
+    raise RuntimeError(f"Geminiの全モデルが混雑・失敗。最後のエラー: {last_err}")
 
 
 def call_claude(prompt: str) -> str:
@@ -339,6 +352,10 @@ def update_sitemap(slug: str):
 
 def main():
     rows = list(csv.DictReader(open(CSV_PATH, encoding="utf-8")))
+    if any(f"generated {TODAY_ISO}" in (r.get("notes") or "") for r in rows):
+        print(f"本日({TODAY_ISO})はすでに生成済みのためスキップします。")
+        open(os.path.join(ROOT, "pipeline", "last_generated.txt"), "w").write("")
+        return
     target = next((r for r in rows if r["status"] == "pending"), None)
     if target is None:
         print("No pending keywords. Nothing to do.")
@@ -364,7 +381,7 @@ def main():
                 try:
                     raw = api_call(p2)
                 except Exception as e:
-                    print("APIの呼び出しに失敗しました（キー設定を確認してください）:", e)
+                    print("APIの呼び出しに失敗しました:", e)
                     sys.exit(1)
                 try:
                     cand = parse_json(raw)
