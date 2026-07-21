@@ -2,7 +2,9 @@ name: 新規コラム記事の自動生成
 
 on:
   schedule:
-    - cron: '0 0 * * 1'   # 毎週月曜 09:00 JST
+    - cron: '0 0 * * 1'    # 毎週月曜 09:00 JST
+    - cron: '0 6 * * 1'    # 同日15:00 JST(朝が混雑で失敗した場合の自動再挑戦)
+    - cron: '0 12 * * 1'   # 同日21:00 JST(同上。生成済みの日は自動スキップ)
   workflow_dispatch: {}    # 手動実行も可能
 
 permissions:
@@ -21,11 +23,23 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: 記事を生成
+      - name: 記事を生成（失敗時は2分おきに最大5回自動リトライ）
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python3 pipeline/generate_article.py
+        run: |
+          for i in 1 2 3 4 5; do
+            echo "===== 試行 $i/5 ====="
+            if python3 pipeline/generate_article.py; then
+              exit 0
+            fi
+            if [ "$i" -lt 5 ]; then
+              echo "失敗。120秒待って再試行します..."
+              sleep 120
+            fi
+          done
+          echo "5回試しても失敗しました。次のスケジュール実行で自動再挑戦します。"
+          exit 1
 
       - name: 生成ファイル名を取得
         id: meta
