@@ -30,7 +30,8 @@ ALLOWED_LINKS = [
     "column-allergy-drowsy.html", "column-constipation-habit.html",
     "column-constipation-relief.html", "column-diarrhea-care.html",
     "column-heartburn.html", "column-nausea.html", "column-stomachache.html",
-    "column-pharmacist-consult.html",
+    "column-pharmacist-consult.html", "column-throat-pain.html",
+    "column-cold-medicine.html", "column-stomach-medicine.html",
 ]
 BANNED = ["必ず治", "絶対に安全", "副作用はありません", "100%", "誰でも安心", "受診は不要"]
 GRADIENTS = [

@@ -3,7 +3,7 @@
 ## 仕組み
 毎週月曜9時（＋手動実行）に GitHub Actions が動き、
 
-1. `pipeline/keywords.csv` の一番上の `pending` キーワードで記事を自動生成（Claude API）
+1. `pipeline/keywords.csv` の一番上の `pending` キーワードで記事を自動生成（Gemini API・無料枠）
 2. FAQ同期・JSON-LD・受診目安の有無などを自動検証
 3. `column-○○.html` 作成＋`column.html`（一覧カード）＋`sitemap.xml` を更新して **Pull Request を作成**
 4. **Gmail にレビュー用メール（記事HTML添付＋PRリンク）が届く**
@@ -14,8 +14,12 @@ Mergeが「薬剤師承認」のゲートです。Mergeしない限り公開さ�
 
 ## 初回セットアップ（3ステップ・各自分で操作）
 
-### 1. Anthropic APIキーを用意
-- https://console.anthropic.com/ でAPIキーを作成（従量課金・記事1本あたり数十円程度）
+### 1. Gemini APIキーを用意（無料・クレカ登録不要）
+- https://aistudio.google.com/apikey を開き、Googleアカウントでログイン
+- 「APIキーを作成」→ 表示されたキーをコピー
+- 無料枠の範囲（週1本の生成なら十分）で動きます
+- ※無料枠は入力データがGoogleのサービス改善に使われることがありますが、
+  送信するのは記事生成の指示文のみで個人情報は含みません
 
 ### 2. Gmailのアプリパスワードを用意
 - Googleアカウントで2段階認証を有効化
@@ -28,9 +32,12 @@ Mergeが「薬剤師承認」のゲートです。Mergeしない限り公開さ�
 **Settings → Secrets and variables → Actions → New repository secret** で3つ登録:
 | Name | 値 |
 |---|---|
-| `ANTHROPIC_API_KEY` | 手順1のAPIキー |
+| `GEMINI_API_KEY` | 手順1のAPIキー |
 | `GMAIL_USERNAME` | あなたのGmailアドレス |
 | `GMAIL_APP_PASSWORD` | 手順2の16桁 |
+
+※Claude(Anthropic API)を使いたい場合は代わりに `ANTHROPIC_API_KEY` を登録(従量課金)。
+　両方あるときはGeminiを優先します。
 
 **Settings → Actions → General → Workflow permissions** で:
 - 「Read and write permissions」を選択
