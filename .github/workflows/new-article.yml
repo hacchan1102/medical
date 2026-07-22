@@ -49,6 +49,9 @@ jobs:
         run: |
           FNAME=$(cat pipeline/last_generated.txt)
           echo "fname=$FNAME" >> "$GITHUB_OUTPUT"
+          SLUG="${FNAME#column-}"; SLUG="${SLUG%.html}"
+          echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
+          echo "preview=https://medical-git-art-${SLUG}-hacchan1102s-projects.vercel.app/${FNAME}" >> "$GITHUB_OUTPUT"
           if [ -z "$FNAME" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; fi
 
       - name: Pull Request を作成（マージ＝公開承認）
@@ -56,11 +59,15 @@ jobs:
         id: pr
         uses: peter-evans/create-pull-request@v6
         with:
-          branch: article/${{ steps.meta.outputs.fname }}
+          branch: art-${{ steps.meta.outputs.slug }}
           commit-message: "新規コラム: ${{ steps.meta.outputs.fname }}"
           title: "【要レビュー】新規コラム: ${{ steps.meta.outputs.fname }}"
           body: |
             自動生成された新規コラムです。
+
+            📱 **記事プレビュー（本番と同じ見た目・作成後1分ほどで有効）**
+            ${{ steps.meta.outputs.preview }}
+
             - 成分名・数値・受診目安を薬剤師として確認してください
             - 問題なければ **Merge → Vercelが自動デプロイ（公開）** されます
             - 修正が必要なら、このブランチのファイルをGitHub上で直接編集してからMergeしてください
@@ -79,7 +86,10 @@ jobs:
           to: ${{ secrets.GMAIL_USERNAME }}
           from: みんなの薬剤師 記事パイプライン
           body: |
-            新しいコラム記事が生成されました。添付のHTMLを確認してください。
+            新しいコラム記事が生成されました。
+
+            ▼ 記事プレビュー（本番と同じ見た目で読めます。届いてから1分ほどで有効）
+            ${{ steps.meta.outputs.preview }}
 
             ▼ 承認（公開）する場合
             下のPRを開いて Merge してください。Vercelが自動デプロイします。
