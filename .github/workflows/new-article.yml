@@ -8,6 +8,7 @@ on:
     - cron: '0 0 * * 4'    # 毎週木曜 09:00 JST
     - cron: '0 6 * * 4'    # 木曜15:00 JST(自動再挑戦)
     - cron: '0 12 * * 4'   # 木曜21:00 JST(自動再挑戦)
+    - cron: '0 0 * * 5'    # テスト用 金曜9時
   workflow_dispatch: {}    # 手動実行も可能
 
 permissions:
