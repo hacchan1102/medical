@@ -21,12 +21,25 @@ jobs:
       - name: リポジトリを取得
         uses: actions/checkout@v4
 
+      - name: 未レビューの記事PRが残っていないか確認
+        id: gate
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          OPEN=$(gh pr list --repo ${{ github.repository }} --label article-review --state open --json number --jq 'length')
+          echo "open=$OPEN" >> "$GITHUB_OUTPUT"
+          if [ "$OPEN" != "0" ]; then
+            echo "未レビューの記事PRが ${OPEN} 件あります。レビュー(OK/NG返信)が済むまで新規生成はお休みします。"
+          fi
+
       - name: Python セットアップ
+        if: steps.gate.outputs.open == '0'
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: 記事を生成（失敗時は2分おきに最大5回自動リトライ）
+        if: steps.gate.outputs.open == '0'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -47,7 +60,7 @@ jobs:
       - name: 生成ファイル名を取得
         id: meta
         run: |
-          FNAME=$(cat pipeline/last_generated.txt)
+          FNAME=$(cat pipeline/last_generated.txt 2>/dev/null || true)
           echo "fname=$FNAME" >> "$GITHUB_OUTPUT"
           SLUG="${FNAME#column-}"; SLUG="${SLUG%.html}"
           echo "slug=$SLUG" >> "$GITHUB_OUTPUT"
