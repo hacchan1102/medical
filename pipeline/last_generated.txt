@@ -1,1 +1,1 @@
-column-aircon-dry-skin.html
+column-aircon-cold.html
