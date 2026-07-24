@@ -2,7 +2,8 @@ slug,keyword,working_title,status,notes
 throat-pain,のどの痛み 市販薬,のどが痛いときの市販薬の選び方,done,throat.htmlと相互リンク | generated 2026-07-21
 heatstroke-ors,熱中症 経口補水液,熱中症対策と経口補水液の正しい使い方,done,夏の時事ネタ・受診目安を保守的に | generated 2026-07-22
 aircon-dry-skin,エアコン 肌 乾燥 かゆい,エアコンで肌が乾燥してかゆいときの市販薬とケア,done,夏の時事ネタ・保湿+かゆみ止め | generated 2026-07-23
-aircon-cold,冷房 喉 痛い だるい,エアコンで喉が痛い・だるいときの対処法,done,夏の時事ネタ・cold-early/throat-painと相互リンク | generated 2026-07-24
+kabi-allergy,カビ アレルギー 症状,カビ・ダニによる夏のアレルギー症状の対処,pending,【今が旬・LINE配信と連動】allergy.htmlと相互リンク
+aircon-cold,冷房 喉 痛い だるい,エアコンで喉が痛い・だるいときの対処法,pending,夏の時事ネタ・cold-early/throat-painと相互リンク
 summer-kampo,夏バテ 漢方,夏の不調に使われる漢方薬（夏バテ・むくみ）,pending,薬剤師知識ネタ・E-E-A-T向き・断定を避け保守的に
 insect-bite,虫刺され かゆみ止め,虫刺されのかゆみ・腫れに使う市販薬,pending,夏の時事ネタ
 natsubate,夏バテ だるさ 市販薬,夏バテのだるさをやわらげる市販薬とセルフケア,pending,fatigue.htmlと相互リンク
@@ -34,6 +35,28 @@ med-expiry,市販薬 使用期限 保管,市販薬の使用期限と正しい保
 flu-vs-cold,インフルエンザ 風邪 違い,インフルエンザと風邪の見分け方・市販薬で対処していい？,pending,【冬12-2月】受診前提を強く・fever-adultと相互リンク
 dry-throat,冬 のど 乾燥 対策,冬の乾燥でのどが痛いときのケアと市販薬,pending,【冬】throat-painと相互リンク
 norovirus-care,ノロウイルス 家庭 対処,冬の胃腸炎（ノロウイルスなど）の家庭での対処,pending,【冬】下痢止め自己判断NG・脱水と受診目安を明確に・diarrhea-careと相互リンク
+shimoyake,しもやけ 市販薬,しもやけの市販薬と対処法,pending,【冬】
+hibi-akagire,ひび あかぎれ 市販薬,ひび・あかぎれのハンドケアと市販薬,pending,【冬】hand-eczemaと相互リンク
+lip-care,唇 荒れ 市販薬,唇の荒れ・口唇炎に使う市販薬,pending,【冬】herpes-lipと相互リンク
+hiesho-kampo,冷え性 漢方,冷え性に使われる漢方薬の種類と選び方,pending,【冬】断定を避け保守的に・summer-kampoと相互リンク
+newyear-stomach,年末年始 食べ過ぎ 胃もたれ,年末年始の食べすぎ・飲みすぎの胃腸ケア,pending,【冬12-1月】heartburn・hangoverと相互リンク
+hemorrhoid,痔 市販薬,痔の市販薬（軟膏・坐剤）の選び方,pending,検索需要大・受診目安を明確に
+dry-eye,ドライアイ 目薬,ドライアイ・疲れ目の目薬の選び方,pending,
+lower-back,腰痛 湿布 市販薬,腰痛に使う湿布・塗り薬の選び方,pending,しびれ等の受診サインを明確に
+toothache,歯痛 応急処置 市販薬,歯が痛いときの応急処置と市販薬,pending,受診が前提であることを強調
+athlete-foot,水虫 市販薬,水虫の市販薬と再発を防ぐケア,pending,
+hand-eczema,手荒れ 市販薬,手荒れ・主婦湿疹のケアと市販薬,pending,
+bloating,お腹の張り ガス 市販薬,お腹の張り・ガスだまりに使う市販薬,pending,stomach.htmlと相互リンク
+stress-stomach,ストレス 胃痛 市販薬,ストレスによる胃の不調と市販薬,pending,heartburnコラムと相互リンク
+pms,PMS 市販薬,PMS（月経前の不調）に使える市販薬,pending,period-painコラムと相互リンク・保守的に
+pollen-start,花粉症 薬 いつから,花粉症の薬はいつから飲み始める？初期療法とは,pending,【春2-4月】allergy-drowsyと相互リンク
+pollen-nose-spray,花粉症 点鼻薬 選び方,花粉症の点鼻薬の選び方と使い方,pending,【春】nasal-spray(薬剤性鼻炎)と相互リンク
+kosa-pm25,黄砂 PM2.5 のど 目,黄砂・PM2.5でのど・目がつらいときの対処,pending,【春】
+spring-drowsy,春 眠気 だるさ,春の眠気・だるさの原因と対処,pending,【春】insomnia-otcと相互リンク
+shinseikatsu-stress,新生活 ストレス 体調不良,新生活の疲れ・ストレスによる体調不良の対処,pending,【春4-5月】stress-stomachと相互リンク・メンタル面は受診案内を丁寧に
+weather-headache,低気圧 頭痛 薬,雨の日・低気圧の頭痛（天気痛）の対処と市販薬,pending,【梅雨6月・台風期】五苓散に言及可・headache-typesと相互リンク
+tsuyu-mukumi,梅雨 むくみ だるさ,梅雨のむくみ・だるさの対処,pending,【梅雨】漢方に言及可・保守的に
+food-poisoning,食中毒 対処,食中毒の予防と、なってしまったときの対処,pending,【梅雨-夏】受診目安を明確に・diarrhea-careと相互リンク
 shimoyake,しもやけ 市販薬,しもやけの市販薬と対処法,pending,【冬】
 hibi-akagire,ひび あかぎれ 市販薬,ひび・あかぎれのハンドケアと市販薬,pending,【冬】hand-eczemaと相互リンク
 lip-care,唇 荒れ 市販薬,唇の荒れ・口唇炎に使う市販薬,pending,【冬】herpes-lipと相互リンク
